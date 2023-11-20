@@ -1,0 +1,2 @@
+ls -m -p -t
+#-m > vírgula -p > indica os diretórios > indica o tempo#

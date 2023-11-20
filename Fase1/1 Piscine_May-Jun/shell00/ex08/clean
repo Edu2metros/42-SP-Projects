@@ -1,0 +1,2 @@
+#!/bin/bash/
+find . -type f \( -name "*~" -o -name "#*#" \) -print -delete #find > comando pra achar || . o que está na pasta || -type > tipo | f > quer arquivos|| \( começo do agrupamento (já que é mais de dois arquivos que está procurando) "*~" < direita do asterisco acabar, esquerda começo || -o > or -name "#*#" msm coisa \) fim do agrupamento | -delete > procedência.#
