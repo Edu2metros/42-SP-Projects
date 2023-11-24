@@ -6,7 +6,7 @@
 /*   By: eddos-sa <eddos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:24:10 by eddos-sa          #+#    #+#             */
-/*   Updated: 2023/11/24 16:21:02 by eddos-sa         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:51:36 by eddos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@
 
 typedef struct s_stack
 {
-    int number; // 5 // 4
-	int mov; // 3 // // 2
+    int number;
+	int mov;
     struct s_stack *next;
     struct s_stack *previous;
 } t_stack;
 
 // STACK B FUNCTIONS
 
-void swap_b(t_stack *head);
-void push_b(t_stack *head);
-void rotate_b(t_stack *head);
-void reverse_rotate_b(t_stack *head);
+void swap_b(t_stack **head);
+void push_b(t_stack **head);
+void rotate_b(t_stack **head);
+void reverse_rotate_b(t_stack **head);
 
 // STACK A FUNCTIONS
 
 void	swap_a(t_stack **head);
-void	push_a(t_stack *head);
-void	rotate_a(t_stack *head);
-void	reverse_rotate_a(t_stack *head);
+void	push_a(t_stack **head);
+void	rotate_a(t_stack **head);
+void	reverse_rotate_a(t_stack **head);
 
 // MAIN FUNCTIONS
 int	ft_limits(const char *str);
 void	check_args(char **argv);
-void	init_linked_list(char **argv, t_stack *value);
+t_stack *init_linked_list(char **argv, t_stack *value);
