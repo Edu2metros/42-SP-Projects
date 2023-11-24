@@ -5,10 +5,10 @@ INCLUDES = -I ./libft/
 
 OBJ_DIR = objs
 
-PUSH_SWAP_SRC = main.c
+PUSH_SWAP_SRC = main.c moves_stack_a.c moves_stack_b.c
 PUSH_SWAP_OBJ = $(addprefix $(OBJ_DIR)/, $(PUSH_SWAP_SRC:%.c=%.o))
 
-C_SRC = main.c
+C_SRC = main.c moves_stack_a.c moves_stack_b.c
 C_OBJ = $(addprefix $(OBJ_DIR)/, $(C_SRC:%.c=%.o))
 
 all: libft $(PUSH_SWAP_NAME)
