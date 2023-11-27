@@ -32,6 +32,7 @@ void	check_args(char **argv)
 
 void	print_linked_list(t_stack *head)
 {
+	ft_printf("entrou\n");
 	t_stack	*current;
 
 	current = head;

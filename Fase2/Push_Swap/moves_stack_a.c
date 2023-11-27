@@ -14,25 +14,22 @@ void	swap_a(t_stack **head)
 	*head = second;
 	ft_printf("sa\n");
 }
-void rotate_a(t_stack **head)
-{
-    t_stack *first;
-    t_stack *last;
-	t_stack *aux;
 
+void	rotate_a(t_stack **head)
+{
+	t_stack *first;
+	t_stack *last;
 	first = *head;
 	last = *head;
-	aux = first->next;
 	while(last->next)
 		last = last->next;
+	first->next = last->next;
+	last->previous = first->previous;
 	last->next = first;
 	first->previous = last;
-	first->next = NULL;
-	aux->previous = NULL;
-	*head = aux;
-    ft_printf("ra\n");
+	*head = last;
+	ft_printf("ra\n");
 }
-
 
 void	push_a(t_stack **head)
 {
