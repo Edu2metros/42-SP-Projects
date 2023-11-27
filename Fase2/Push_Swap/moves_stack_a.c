@@ -14,27 +14,25 @@ void	swap_a(t_stack **head)
 	*head = second;
 	ft_printf("sa\n");
 }
-void	rotate_a(t_stack **head)
+void rotate_a(t_stack **head)
 {
-	t_stack	*current;
-	t_stack	*temp;
+    t_stack *first;
+    t_stack *last;
+	t_stack *aux;
 
-	current = *head;
-	while (current->next != NULL)
-		current = current->next;
-	temp = current;
-	current = current->previous;
-	if (temp->previous->next != NULL)
-		temp->previous->next = temp->next;
-	if (current->previous != NULL)
-		current->previous->next = temp;
-	temp->previous = current->previous;
-	temp->next = current;
-	current->previous = temp;
-	current->next = NULL;
-	*head = temp;
-	ft_printf("ra\n");
+	first = *head;
+	last = *head;
+	aux = first->next;
+	while(last->next)
+		last = last->next;
+	last->next = first;
+	first->previous = last;
+	first->next = NULL;
+	aux->previous = NULL;
+	*head = aux;
+    ft_printf("ra\n");
 }
+
 
 void	push_a(t_stack **head)
 {
@@ -43,9 +41,9 @@ void	push_a(t_stack **head)
 
 void	reverse_rotate_a(t_stack **head)
 {
-	t_stack	*last;
-	t_stack	*current;
-	t_stack	*temp;
+	t_stack *last;
+	t_stack *current;
+	t_stack *temp;
 
 	temp = *head;
 	current = *head;
@@ -65,4 +63,4 @@ void	reverse_rotate_a(t_stack **head)
 	}
 	current->next = NULL;
 	ft_printf("rra\n");
-} 
+}

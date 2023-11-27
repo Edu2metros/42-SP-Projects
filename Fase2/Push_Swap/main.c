@@ -82,8 +82,8 @@ int	main(int argc, char **argv)
 		print_linked_list(number);
 		swap_a(&number);
 		print_linked_list(number);
-		// rotate_a(&number);
-		// print_linked_list(&number);
+		rotate_a(&number);
+		print_linked_list(&number);
 		// reverse_rotate_a(&number);
 		// print_linked_list(&number);
 	}
