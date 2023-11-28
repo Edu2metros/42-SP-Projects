@@ -32,7 +32,6 @@ void	check_args(char **argv)
 
 void	print_linked_list(t_stack *head)
 {
-	ft_printf("entrou\n");
 	t_stack	*current;
 
 	current = head;
@@ -75,7 +74,7 @@ t_stack *init_linked_list(char **argv, t_stack *value)
 
 int	main(int argc, char **argv)
 {
-	t_stack *number;
+	t_stack *number = NULL;
 	if (argc >= 3)
 	{
 		check_args(argv);
@@ -84,10 +83,11 @@ int	main(int argc, char **argv)
 		swap_a(&number);
 		print_linked_list(number);
 		rotate_a(&number);
-		print_linked_list(&number);
+		print_linked_list(number);
 		// reverse_rotate_a(&number);
-		// print_linked_list(&number);
+		// print_linked_list(number);
 	}
+
 }
 
 /* sa (swap a): Swap the first 2 elements at the top of stack a.

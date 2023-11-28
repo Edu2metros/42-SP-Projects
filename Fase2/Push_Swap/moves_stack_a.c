@@ -15,18 +15,29 @@ void	swap_a(t_stack **head)
 	ft_printf("sa\n");
 }
 
+// Previous de 4 apontar pra NULL
+// Next de 4 apontar pra 1
+// previous de 1 apontar pra 4
+// next de 3 apontar pra 2
+// previous de 2 apontar pra 3
+// next de 2 apontar pra NULL
+
 void	rotate_a(t_stack **head)
 {
-	t_stack *first;
-	t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
 	first = *head;
-	last = *head;
-	while(last->next)
+	last = first;
+	while (last->next != NULL)
 		last = last->next;
-	first->next = last->next;
-	last->previous = first->previous;
-	last->next = first;
 	first->previous = last;
+	last->next = first->next;
+	first->next->previous = last;
+	last->previous->next = first;
+	first->next = NULL;
 	*head = last;
 	ft_printf("ra\n");
 }
