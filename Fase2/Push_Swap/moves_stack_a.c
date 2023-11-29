@@ -15,60 +15,43 @@ void	swap_a(t_stack **head)
 	ft_printf("sa\n");
 }
 
-// Previous de 4 apontar pra NULL
-// Next de 4 apontar pra 1
-// previous de 1 apontar pra 4
-// next de 3 apontar pra 2
-// previous de 2 apontar pra 3
-// next de 2 apontar pra NULL
-
+void	push_a(t_stack **head)
+{
+	
+	ft_printf("pa\n");
+}
 void	rotate_a(t_stack **head)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	if (*head == NULL || (*head)->next == NULL)
-		return ;
 	first = *head;
 	last = first;
 	while (last->next != NULL)
 		last = last->next;
+	last->previous->next = NULL;
+	last->previous = NULL;
+	last->next = first;
 	first->previous = last;
-	last->next = first->next;
-	first->next->previous = last;
-	last->previous->next = first;
-	first->next = NULL;
 	*head = last;
 	ft_printf("ra\n");
 }
 
-void	push_a(t_stack **head)
-{
-	ft_printf("pa\n");
-}
-
 void	reverse_rotate_a(t_stack **head)
 {
-	t_stack *last;
-	t_stack *current;
-	t_stack *temp;
+	t_stack	*first;
+	t_stack	*last;
+	t_stack *imprimir;
 
-	temp = *head;
-	current = *head;
-	last = *head;
+	imprimir = *head;
+	first = *head;
+	last = first;
 	while (last->next != NULL)
 		last = last->next;
-	current = last;
-	current->next = temp->next;
-	current->previous = temp->previous;
-	current = current->next;
-	temp = temp->next;
-	while (temp->next != NULL)
-	{
-		current = temp;
-		temp = temp->next;
-		ft_printf("%d\n", temp->next->number);
-	}
-	current->next = NULL;
+	*head = (*head)->next;
+	(*head)->previous = NULL;
+	last->next = first;
+	first->previous = last;
+	first->next = NULL;
 	ft_printf("rra\n");
 }

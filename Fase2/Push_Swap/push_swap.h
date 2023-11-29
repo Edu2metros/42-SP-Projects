@@ -6,7 +6,7 @@
 /*   By: eddos-sa <eddos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:24:10 by eddos-sa          #+#    #+#             */
-/*   Updated: 2023/11/24 19:51:36 by eddos-sa         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:51:41 by eddos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_stack
 {
     int number;
-	int mov;
+	
     struct s_stack *next;
     struct s_stack *previous;
 } t_stack;
