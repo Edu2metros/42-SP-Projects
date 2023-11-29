@@ -17,6 +17,9 @@ void	swap_a(t_stack **head)
 
 void	push_a(t_stack **head)
 {
+	t_stack *first;
+	t_stack *last;
+
 	
 	ft_printf("pa\n");
 }

@@ -6,7 +6,7 @@
 /*   By: eddos-sa <eddos-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:24:10 by eddos-sa          #+#    #+#             */
-/*   Updated: 2023/11/29 13:51:41 by eddos-sa         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:01:05 by eddos-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,29 @@
 
 typedef struct s_stack
 {
-    int number;
-	
-    struct s_stack *next;
-    struct s_stack *previous;
-} t_stack;
+	int				number;
+
+	struct s_stack	*next;
+	struct s_stack	*previous;
+	struct s_stack	*stack_a;
+	struct s_stack	*stack_b;
+}					t_stack;
 
 // STACK B FUNCTIONS
 
-void swap_b(t_stack **head);
-void push_b(t_stack **head);
-void rotate_b(t_stack **head);
-void reverse_rotate_b(t_stack **head);
+void				swap_b(t_stack **head);
+void				push_b(t_stack **head);
+void				rotate_b(t_stack **head);
+void				reverse_rotate_b(t_stack **head);
 
 // STACK A FUNCTIONS
 
-void	swap_a(t_stack **head);
-void	push_a(t_stack **head);
-void	rotate_a(t_stack **head);
-void	reverse_rotate_a(t_stack **head);
+void				swap_a(t_stack **head);
+void				push_a(t_stack **head);
+void				rotate_a(t_stack **head);
+void				reverse_rotate_a(t_stack **head);
 
 // MAIN FUNCTIONS
-int	ft_limits(const char *str);
-void	check_args(char **argv);
-t_stack *init_linked_list(char **argv, t_stack *value);
+int					ft_limits(const char *str);
+void				check_args(char **argv);
+t_stack				*init_linked_list(char **argv, t_stack *value);
