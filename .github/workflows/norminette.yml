@@ -1,23 +1,30 @@
-name: norminette
+name: Norminette
 
 on:
   push:
     branches:
       - master
-      
+
 jobs:
   norminette:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip setuptools
         python -m pip install norminette==3.3.40
+
+    - name: Change Directory
+      run: cd /42-SP-Projects/Fase2/Push_Swap  # Substitua "/path/to/your/project" pelo caminho correto para o seu projeto
+
     - name: Lint with norminette
-      run: |
-        norminette
+      run: norminette
