@@ -24,7 +24,7 @@ jobs:
         python -m pip install norminette==3.3.40
 
     - name: Change Directory
-      run: cd /42-SP-Projects/Fase2/Push_Swap  # Substitua "/path/to/your/project" pelo caminho correto para o seu projeto
+      run: cd /Fase2/Push_Swap  # Substitua "/path/to/your/project" pelo caminho correto para o seu projeto
 
     - name: Lint with norminette
       run: norminette
