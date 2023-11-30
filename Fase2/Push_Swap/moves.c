@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	swap_a(t_stack **head)
+void	swap(t_stack **head, char *flag)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -12,18 +12,10 @@ void	swap_a(t_stack **head)
 	second->next = first;
 	first->previous = second;
 	*head = second;
-	ft_printf("sa\n");
+	ft_printf("%s\n", flag);
 }
 
-void	push_a(t_stack **head)
-{
-	t_stack *first;
-	t_stack *last;
-
-	
-	ft_printf("pa\n");
-}
-void	rotate_a(t_stack **head)
+void	rotate(t_stack **head, char *flag)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -37,16 +29,14 @@ void	rotate_a(t_stack **head)
 	last->next = first;
 	first->previous = last;
 	*head = last;
-	ft_printf("ra\n");
+	ft_printf("%s\n", flag);
 }
 
-void	reverse_rotate_a(t_stack **head)
+void	reverse_rotate(t_stack **head, char *flag)
 {
 	t_stack	*first;
 	t_stack	*last;
-	t_stack *imprimir;
 
-	imprimir = *head;
 	first = *head;
 	last = first;
 	while (last->next != NULL)
@@ -56,5 +46,5 @@ void	reverse_rotate_a(t_stack **head)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
-	ft_printf("rra\n");
+	ft_printf("%s\n", flag);
 }

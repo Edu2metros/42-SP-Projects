@@ -1,35 +1,5 @@
 #include "push_swap.h"
 
-int	ft_limits(const char *str)
-{
-	long int	num;
-
-	num = ft_atol(str);
-	if (num < INTMIN || num > INTMAX || !ft_isalldigit(str))
-		exit(ft_printf("Error\n"));
-	return (1);
-}
-
-void	check_args(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		ft_limits(argv[i]);
-		j = i + 1;
-		while (argv[j])
-		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				exit(ft_printf("Error\n"));
-			j++;
-		}
-		i++;
-	}
-}
-
 void	printlist(t_stack *head)
 {
 	t_stack	*current;
@@ -42,8 +12,7 @@ void	printlist(t_stack *head)
 	}
 	ft_printf("\n");
 }
-
-t_stack	*init_linked_list(char **argv, t_stack *value)
+t_stack	*init_stack_a(char **argv, t_stack *value)
 {
 	t_stack	*current;
 	t_stack	*new;
@@ -71,41 +40,71 @@ t_stack	*init_linked_list(char **argv, t_stack *value)
 	return (value);
 }
 
+int	lstsize(t_stack *lst)
+{
+	int	len;
+
+	len = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
+}
+
+t_stack *lstlast(t_stack **last)
+{
+	t_stack *result;
+
+	result = *last;
+	while (result != NULL)
+		result = result->next;
+	return(result);
+}
+
+// tá o que eu faço agora? 6 3 0 5 -2
+void	sort_three(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*last;
+	
+	current = *stack;
+	last = lstlast(stack);
+	if(current->number < last->number)
+		exit(EXIT_FAILURE);
+}
+
+void	sort_list(t_stack **stack_a, t_stack **stack_b)
+{
+	if (lstsize(*stack_a) == 3)
+		sort_three(stack_a);
+}
+
 int	main(int argc, char **argv)
 {
-	t_stack	*number;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		validate;
 
-	number = NULL;
+	stack_a = NULL;
 	if (argc >= 3)
 	{
-		check_args(argv);
-		number = init_linked_list(argv, number);
-		printlist(number);
-		swap_a(&number);
-		printlist(number);
-		rotate_a(&number);
-		printlist(number);
-		reverse_rotate_a(&number);
-		printlist(number);
+		validate = check_args(argv);
+		if (!validate)
+			return (EXIT_SUCCESS);
+		stack_a = init_stack_a(argv, stack_a);
+		printlist(stack_a);
+		sort_list(&stack_a, &stack_b);
+		printlist(stack_a);
+		free_stacks(&stack_a, &stack_b);
 	}
 }
 
-/* sa (swap a): Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one or no elements.
-sb (swap b): Swap the first 2 elements at the top of stack b.
-Do nothing if there is only one or no elements.
-ss : sa and sb at the same time.
-pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty.
-pb (push b): Take the first element at the top of a and put it at the top of b.
-Do nothing if a is empty.
-ra (rotate a): Shift up all elements of stack a by 1.
-The first element becomes the last one.
-rb (rotate b): Shift up all elements of stack b by 1.
-The first element becomes the last one.
-rr : ra and rb at the same time.
-rra (reverse rotate a): Shift down all elements of stack a by 1.
-The last element becomes the first one.
-rrb (reverse rotate b): Shift down all elements of stack b by 1.
-The last element becomes the first one.
-rrr : rra and rrb at the same time. */
+/*
+Fazer um algoritimo de ordenação de três números.
+Fazer o push da stack a pra stack b
+TErminar de fazer a ordenação de algorítimo, rrr,
+	se tiver alguma flag imprimir aquilo etc
+FAzer o bagulho de aceitar apenas um parametro se tiver ""
+*/

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: eddos-sa <eddos-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 12:24:10 by eddos-sa          #+#    #+#             */
-/*   Updated: 2023/11/29 15:01:05 by eddos-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "./libft/libft.h"
 
 #define INTMIN -2147483648
@@ -21,25 +9,25 @@ typedef struct s_stack
 
 	struct s_stack	*next;
 	struct s_stack	*previous;
-	struct s_stack	*stack_a;
-	struct s_stack	*stack_b;
 }					t_stack;
 
-// STACK B FUNCTIONS
+// CHECK_ARGS FUNCTIONS
 
-void				swap_b(t_stack **head);
-void				push_b(t_stack **head);
-void				rotate_b(t_stack **head);
-void				reverse_rotate_b(t_stack **head);
-
-// STACK A FUNCTIONS
-
-void				swap_a(t_stack **head);
-void				push_a(t_stack **head);
-void				rotate_a(t_stack **head);
-void				reverse_rotate_a(t_stack **head);
-
-// MAIN FUNCTIONS
 int					ft_limits(const char *str);
-void				check_args(char **argv);
-t_stack				*init_linked_list(char **argv, t_stack *value);
+int					is_ordened(char **argv);
+int					check_args(char **argv);
+
+// FREE FUNCTIONS
+
+void				free_stack_b(t_stack **stack);
+void				free_stack_a(t_stack **stack);
+int					free_stacks(t_stack **stack_a, t_stack **stack_b);
+
+// MOVES FUNCTIONS
+
+void				swap(t_stack **head, char *flag);
+void				rotate(t_stack **head, char *flag);
+void				reverse_rotate(t_stack **head, char *flag);
+
+// PUSH FUNCTIONS
+void				push_a(t_stack **stack_a, t_stack **stack_b, char *flag);
