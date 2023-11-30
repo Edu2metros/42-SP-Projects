@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eddos-sa <eddos-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:49:05 by eddos-sa          #+#    #+#             */
+/*   Updated: 2023/11/30 16:49:28 by eddos-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	printlist(t_stack *head)
@@ -12,6 +24,7 @@ void	printlist(t_stack *head)
 	}
 	ft_printf("\n");
 }
+
 t_stack	*init_stack_a(char **argv, t_stack *value)
 {
 	t_stack	*current;
@@ -53,32 +66,14 @@ int	lstsize(t_stack *lst)
 	return (len);
 }
 
-t_stack *lstlast(t_stack **last)
+t_stack	*lstlast(t_stack **last)
 {
-	t_stack *result;
+	t_stack	*result;
 
 	result = *last;
 	while (result != NULL)
 		result = result->next;
-	return(result);
-}
-
-// tá o que eu faço agora? 6 3 0 5 -2
-void	sort_three(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*last;
-	
-	current = *stack;
-	last = lstlast(stack);
-	if(current->number < last->number)
-		exit(EXIT_FAILURE);
-}
-
-void	sort_list(t_stack **stack_a, t_stack **stack_b)
-{
-	if (lstsize(*stack_a) == 3)
-		sort_three(stack_a);
+	return (result);
 }
 
 int	main(int argc, char **argv)

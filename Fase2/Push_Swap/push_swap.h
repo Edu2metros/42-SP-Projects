@@ -1,7 +1,22 @@
-#include "./libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eddos-sa <eddos-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:51:46 by eddos-sa          #+#    #+#             */
+/*   Updated: 2023/11/30 16:52:14 by eddos-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define INTMIN -2147483648
-#define INTMAX 2147483647
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "./libft/libft.h"
+
+# define INTMIN -2147483648
+# define INTMAX 2147483647
 
 typedef struct s_stack
 {
@@ -31,3 +46,9 @@ void				reverse_rotate(t_stack **head, char *flag);
 
 // PUSH FUNCTIONS
 void				push_a(t_stack **stack_a, t_stack **stack_b, char *flag);
+
+// SORT FUNCTIONS
+void				sort_three(t_stack **stack);
+void				sort_list(t_stack **stack_a, t_stack **stack_b);
+
+#endif
